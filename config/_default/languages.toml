@@ -1,6 +1,10 @@
-################ English language ##################
+[nl]
+  languageName = "Nederlands"
+  languageCode = "nl-nl"
+  contentDir = "content/nederlands"
+  weight = 1
 [en]
-languageName = "En"
-languageCode = "en-us"
-contentDir = "content/english"
-weight = 1
+  languageName = "English"
+  languageCode = "en-uk"
+  contentDir = "content/english"
+  weight = 2
