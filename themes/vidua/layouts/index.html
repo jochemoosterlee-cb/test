@@ -28,6 +28,14 @@
           <div class="col-12">
             {{ partial "image" (dict "Src" .image "Alt" "Banner image" "Loading" "eager" "Class" "mx-auto lg:!max-w-[800px]" ) }}
           </div>
+          {{ with .storesbanner}}
+            {{ if .enable }}
+              <div class="stores-banner">
+                <a class="btn-store" href="{{ .linkappleappstore | absURL }}">{{ partial "applestore" }}</a>
+                <a class="btn-store" href="{{ .linkgoogleplaystore | absURL }}">{{ partial "googlestore" }}</a>
+              </div>
+            {{ end }}  
+          {{ end }}
         </div>
       </div>
     </section>
@@ -36,7 +44,7 @@
 
   <!-- Features -->
   {{ range $i, $e:= .Params.features }}
-    <section class="section-sm {{ if (modBool $i 2) }}bg-gradient{{ end }}">
+    <section class="section-sm bg-non-gradient">
       <div class="container">
         <div class="row items-center justify-between">
           <div
@@ -54,6 +62,15 @@
             </h2>
             <p class="mb-8 text-lg">
               {{ .content | markdownify }}
+              <div>
+                {{ with .link }}
+                  {{ if .enable }}
+                    <a class="mb-8 text-lg link" href="{{ .link | absURL }}">
+                    {{ .label }}
+                    </a>
+                  {{ end }}
+                {{ end }}
+              </div>
             </p>
             <ul>
               {{ range .bulletpoints }}
